@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>گردشگری - حامد روشنی - (روشنی گشت)</title>
+    <title>دی - حامد روشنی - (روشنی گشت)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: linear-gradient(135deg, #e6eaec, #c1f8f9, #ffffff); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; overflow-x: hidden; position: relative; }
+        body { background: linear-gradient(135deg, #cccccc, #a4f1ff, #ffffff); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; overflow-x: hidden; position: relative; }
         .earth-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; overflow: hidden; }
         .earth-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vmin; height: 100vmin; animation: rotateEarth 120s linear infinite; }
         .earth { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70vmin; height: 70vmin; border-radius: 50%; background: radial-gradient(circle at 30% 40%, #1e3a8a 0%, #1e40af 10%, #1d4ed8 20%, #3b82f6 40%, #60a5fa 60%, #93c5fd 80%, #dbeafe 100%), radial-gradient(circle at 70% 30%, #065f46 0%, #047857 10%, #059669 20%, #10b981 40%, #34d399 60%, #6ee7b7 80%, #a7f3d0 100%); box-shadow: 0 0 100px rgba(59, 130, 246, 0.5), inset 0 0 100px rgba(0, 0, 0, 0.5); overflow: hidden; }
@@ -53,21 +53,26 @@
     <div class="notification" id="notification">کپی شد!</div>
     <div class="container">
         <div class="card">
-            <h1>گردشگری - حامد روشنی - (روشنی گشت)</h1>
+            <h1>دی - حامد روشنی - (روشنی گشت)</h1>
             <p style="margin-bottom: 20px; font-size: 18px; color: #e5e7eb; font-weight: 500;">برای کپی اطلاعات بانکی ، روی دکمه کپی کلیک کنید.</p>
             <div class="info-section">
                 
                 <div class="info-box">
                     <div class="info-label"><span>شماره شبا</span></div>
-                    <div class="info-value" id="shabaNumber">150640014800701901885001</div>
+                    <div class="info-value" id="shabaNumber">0660000000105933358001</div>
                     <button class="copy-btn" data-copy="shaba">کپی شماره شبا</button>
                 </div>
                 <div class="info-box">
                     <div class="info-label"><span>شماره کارت</span></div>
-                    <div class="info-value" id="cardNumber">5054161019978554</div>
+                    <div class="info-value" id="cardNumber">5029381044104610</div>
                     <button class="copy-btn" data-copy="card">کپی شماره کارت</button>
                 </div>
                 
+                <div class="info-box">
+                    <div class="info-label"><span>شماره حساب</span></div>
+                    <div class="info-value" id="accountNumber">0105933358001</div>
+                    <button class="copy-btn" data-copy="account">کپی شماره حساب</button>
+                </div>
             </div>
             <div class="instructions"><p style="font-weight: 500;">پس از کپی میتونید شماره رو در نرم افزار بانکی خود جایگذاری کنید</p></div>
             <div class="protection-info"><p>لطفا پس از واریز فیش پرداخت رو ارسال فرمایید</p></div>
@@ -77,7 +82,7 @@
         function createStars() { const starsContainer = document.getElementById('stars'); const starCount = 200; for (let i = 0; i < starCount; i++) { const star = document.createElement('div'); star.classList.add('star'); const size = Math.random() * 3; const left = Math.random() * 100; const top = Math.random() * 100; const animationDuration = Math.random() * 5 + 3; const animationDelay = Math.random() * 5; star.style.width = `${size}px`; star.style.height = `${size}px`; star.style.left = `${left}%`; star.style.top = `${top}%`; star.style.animationDuration = `${animationDuration}s`; star.style.animationDelay = `${animationDelay}s`; starsContainer.appendChild(star); } }
         function showNotification(message) { const notification = document.getElementById('notification'); notification.textContent = message; notification.classList.add('show'); setTimeout(() => { notification.classList.remove('show'); }, 1500); }
         function copyToClipboard(text) { if (navigator.clipboard && window.isSecureContext) { return navigator.clipboard.writeText(text); } else { const textArea = document.createElement("textarea"); textArea.value = text; textArea.style.position = "fixed"; textArea.style.opacity = "0"; document.body.appendChild(textArea); textArea.focus(); textArea.select(); try { document.execCommand('copy'); document.body.removeChild(textArea); return Promise.resolve(); } catch (err) { document.body.removeChild(textArea); return Promise.reject(err); } } }
-        const originalData = { shaba: '150640014800701901885001', card: '5054161019978554', account: '' };
+        const originalData = { shaba: '0660000000105933358001', card: '5029381044104610', account: '0105933358001' };
         function protectData() { const shabaElement = document.getElementById('shabaNumber'); const cardElement = document.getElementById('cardNumber'); const accountElement = document.getElementById('accountNumber'); setInterval(() => { if (shabaElement && shabaElement.textContent !== originalData.shaba) { shabaElement.textContent = originalData.shaba; } if (cardElement && cardElement.textContent !== originalData.card) { cardElement.textContent = originalData.card; } if (accountElement && accountElement.textContent !== originalData.account) { accountElement.textContent = originalData.account; } }, 100); }
         document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
         document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
