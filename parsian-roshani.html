@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پارسیان - حامد روشنی - (روشنی گشت)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #660002, #840000, #000000); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; overflow-x: hidden; position: relative; }
+        .earth-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; overflow: hidden; }
+        .earth-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vmin; height: 100vmin; animation: rotateEarth 120s linear infinite; }
+        .earth { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70vmin; height: 70vmin; border-radius: 50%; background: radial-gradient(circle at 30% 40%, #1e3a8a 0%, #1e40af 10%, #1d4ed8 20%, #3b82f6 40%, #60a5fa 60%, #93c5fd 80%, #dbeafe 100%), radial-gradient(circle at 70% 30%, #065f46 0%, #047857 10%, #059669 20%, #10b981 40%, #34d399 60%, #6ee7b7 80%, #a7f3d0 100%); box-shadow: 0 0 100px rgba(59, 130, 246, 0.5), inset 0 0 100px rgba(0, 0, 0, 0.5); overflow: hidden; }
+        .earth::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, transparent 30%, rgba(30, 64, 175, 0.7) 70%), radial-gradient(circle at 70% 70%, transparent 30%, rgba(5, 150, 105, 0.6) 70%); border-radius: 50%; animation: cloudMove 60s linear infinite; }
+        .earth::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 60% 20%, rgba(255, 255, 255, 0.1) 5%, transparent 15%), radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 5%, transparent 15%), radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 5%, transparent 15%); border-radius: 50%; animation: cloudMove2 80s linear infinite; }
+        .atmosphere { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 75vmin; height: 75vmin; border-radius: 50%; background: radial-gradient(circle, transparent 60%, rgba(59, 130, 246, 0.1) 90%); animation: pulseAtmosphere 8s ease-in-out infinite; }
+        .orbit { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90vmin; height: 90vmin; border-radius: 50%; border: 1px solid rgba(59, 130, 246, 0.2); animation: rotateOrbit 60s linear infinite; }
+        .satellite { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: white; border-radius: 50%; box-shadow: 0 0 10px rgba(59, 130, 246, 0.8); }
+        .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .star { position: absolute; background: white; border-radius: 50%; animation: twinkle 5s infinite; }
+        @keyframes rotateEarth { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes rotateOrbit { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes cloudMove { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes cloudMove2 { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+        @keyframes pulseAtmosphere { 0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); } }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+        .container { width: 100%; max-width: 650px; text-align: center; z-index: 10; position: relative; }
+        .card { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.05); padding: 35px; color: #f9fafb; position: relative; overflow: hidden; }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent 60%); z-index: -1; }
+        h1 { margin-bottom: 20px; font-size: 32px; position: relative; background: linear-gradient(90deg, #3b82f6, #8b5cf6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% 200%; animation: textGradient 5s ease infinite; }
+        @keyframes textGradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .info-section { margin: 30px 0; }
+        .info-box { background: rgba(31, 41, 55, 0.6); border-radius: 20px; padding: 25px; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .info-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent); transform: translateX(-100%); transition: transform 0.6s; }
+        .info-box:hover::before { transform: translateX(100%); }
+        .info-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.3); }
+        .info-label { font-weight: 600; margin-bottom: 15px; font-size: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; color: #e5e7eb; }
+        .info-value { font-family: 'Courier New', monospace; font-size: 22px; letter-spacing: 2px; direction: ltr; background: rgba(17, 24, 39, 0.8); padding: 20px; border-radius: 15px; margin: 20px 0; word-break: break-all; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; min-height: 70px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3); color: #f9fafb; font-weight: 700; }
+        .copy-btn { background: linear-gradient(90deg, #3b82f6, #8b5cf6); border: none; border-radius: 12px; color: white; padding: 16px 32px; font-size: 18px; cursor: pointer; transition: all 0.3s ease; width: 100%; margin-top: 15px; font-weight: 600; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+        .copy-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); }
+        .copy-btn:active { transform: translateY(1px); }
+        .copy-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transform: translateX(-100%); transition: transform 0.6s; }
+        .copy-btn:hover::before { transform: translateX(100%); }
+        .notification { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5); background: rgba(17, 24, 39, 0.9); color: white; padding: 25px 40px; border-radius: 16px; backdrop-filter: blur(20px); opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 1000; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1); text-align: center; font-size: 22px; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .notification.show { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        .notification::before { content: '✓'; display: block; font-size: 40px; margin-bottom: 10px; background: linear-gradient(90deg, #10b981, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .instructions { background: rgba(31, 41, 55, 0.6); border-radius: 15px; padding: 20px; margin-top: 25px; font-size: 16px; line-height: 1.6; border: 1px solid rgba(255, 255, 255, 0.1); color: #e5e7eb; }
+        .protection-info { margin-top: 20px; font-size: 13px; opacity: 0.7; color: #9ca3af; }
+        @media (max-width: 768px) { .card { padding: 25px; } h1 { font-size: 26px; } .info-value { font-size: 18px; padding: 15px; } .notification { padding: 20px 30px; font-size: 18px; } .earth { width: 90vmin; height: 90vmin; } .atmosphere { width: 95vmin; height: 95vmin; } }
+    </style>
+</head>
+<body>
+    <div class="earth-bg"><div class="stars" id="stars"></div><div class="earth-container"><div class="orbit"><div class="satellite"></div></div><div class="atmosphere"></div><div class="earth"></div></div></div>
+    <div class="notification" id="notification">کپی شد!</div>
+    <div class="container">
+        <div class="card">
+            <h1>پارسیان - حامد روشنی - (روشنی گشت)</h1>
+            <p style="margin-bottom: 20px; font-size: 18px; color: #e5e7eb; font-weight: 500;">برای کپی اطلاعات بانکی ، روی دکمه کپی کلیک کنید.</p>
+            <div class="info-section">
+                
+                <div class="info-box">
+                    <div class="info-label"><span>شماره شبا</span></div>
+                    <div class="info-value" id="shabaNumber">610540109520101349488604</div>
+                    <button class="copy-btn" data-copy="shaba">کپی شماره شبا</button>
+                </div>
+                <div class="info-box">
+                    <div class="info-label"><span>شماره کارت</span></div>
+                    <div class="info-value" id="cardNumber">6221061244984581</div>
+                    <button class="copy-btn" data-copy="card">کپی شماره کارت</button>
+                </div>
+                
+            </div>
+            <div class="instructions"><p style="font-weight: 500;">پس از کپی میتونید شماره رو در نرم افزار بانکی خود جایگذاری کنید</p></div>
+            <div class="protection-info"><p>لطفا پس از واریز فیش پرداخت رو ارسال فرمایید</p></div>
+        </div>
+    </div>
+    <script>
+        function createStars() { const starsContainer = document.getElementById('stars'); const starCount = 200; for (let i = 0; i < starCount; i++) { const star = document.createElement('div'); star.classList.add('star'); const size = Math.random() * 3; const left = Math.random() * 100; const top = Math.random() * 100; const animationDuration = Math.random() * 5 + 3; const animationDelay = Math.random() * 5; star.style.width = `${size}px`; star.style.height = `${size}px`; star.style.left = `${left}%`; star.style.top = `${top}%`; star.style.animationDuration = `${animationDuration}s`; star.style.animationDelay = `${animationDelay}s`; starsContainer.appendChild(star); } }
+        function showNotification(message) { const notification = document.getElementById('notification'); notification.textContent = message; notification.classList.add('show'); setTimeout(() => { notification.classList.remove('show'); }, 1500); }
+        function copyToClipboard(text) { if (navigator.clipboard && window.isSecureContext) { return navigator.clipboard.writeText(text); } else { const textArea = document.createElement("textarea"); textArea.value = text; textArea.style.position = "fixed"; textArea.style.opacity = "0"; document.body.appendChild(textArea); textArea.focus(); textArea.select(); try { document.execCommand('copy'); document.body.removeChild(textArea); return Promise.resolve(); } catch (err) { document.body.removeChild(textArea); return Promise.reject(err); } } }
+        const originalData = { shaba: '610540109520101349488604', card: '6221061244984581', account: '' };
+        function protectData() { const shabaElement = document.getElementById('shabaNumber'); const cardElement = document.getElementById('cardNumber'); const accountElement = document.getElementById('accountNumber'); setInterval(() => { if (shabaElement && shabaElement.textContent !== originalData.shaba) { shabaElement.textContent = originalData.shaba; } if (cardElement && cardElement.textContent !== originalData.card) { cardElement.textContent = originalData.card; } if (accountElement && accountElement.textContent !== originalData.account) { accountElement.textContent = originalData.account; } }, 100); }
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('drop', function(e) { e.preventDefault(); return false; });
+        document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+        function detectDevTools() { const threshold = 160; function check() { if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) { window.location.reload(); } } setInterval(check, 500); check(); window.addEventListener('resize', check); }
+        document.addEventListener('keydown', function(e) { if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'u')) { e.preventDefault(); return false; } });
+        function antiDebugging() { setInterval(function() { (function() {})['constructor']('debugger')(); }, 2000); }
+        document.querySelectorAll('.copy-btn').forEach(button => { button.addEventListener('click', async function() { const type = this.getAttribute('data-copy'); let textToCopy = ''; let message = ''; if (type === 'shaba') { const el = document.getElementById('shabaNumber'); if (!el) return; textToCopy = el.textContent; message = 'شماره شبا کپی شد!'; } else if (type === 'card') { textToCopy = document.getElementById('cardNumber').textContent.replace(/-/g, ''); message = 'شماره کارت کپی شد!'; } else if (type === 'account') { const el = document.getElementById('accountNumber'); if (!el) return; textToCopy = el.textContent; message = 'شماره حساب کپی شد!'; } if (textToCopy) { try { await copyToClipboard(textToCopy); showNotification(message); } catch (err) { console.error('خطا در کپی کردن:', err); } } }); });
+        document.addEventListener('DOMContentLoaded', function() { createStars(); protectData(); detectDevTools(); antiDebugging(); const elements = document.querySelectorAll('*'); elements.forEach(el => { el.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; }); }); });
+        const observer = new MutationObserver(function(mutations) { mutations.forEach(function(mutation) { if (mutation.type === 'childList' || mutation.type === 'characterData') { protectData(); } }); });
+        observer.observe(document.body, { attributes: true, childList: true, subtree: true, characterData: true });
+    </script>
+</body>
+</html>
